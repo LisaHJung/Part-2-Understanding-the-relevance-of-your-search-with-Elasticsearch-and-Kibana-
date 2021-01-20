@@ -17,31 +17,39 @@ This repo contains all resources shared during the workshop 1.2: Understanding t
 
 [Elastic Austin User Group](https://www.meetup.com/elastic-austin-user-group/members/) Want to attend live workshops? Join the Elastic Austin User Group to keep up to date on all future events!
 
-## Getting information about cluster and nodes
+## Sending a search request to see the content of the index
 Syntax: 
 ```
-GET _API/parameter
+GET name-of-the-index/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
 ```
-### Get info about cluster health
+### Get info about news_articles index
 ```
-GET _cluster/health
+GET news_articles/_search
+{
+  "query": {
+    "match_all": {}
+  }
+}
 ```
 Expected response from Elasticsearch:
 
-![image](https://user-images.githubusercontent.com/60980933/101955613-64bd9000-3bbb-11eb-89da-564dd8680155.png)
+![image](https://user-images.githubusercontent.com/60980933/105195820-3b681c00-5af8-11eb-8783-6bcdb4ca9d92.png)
 
-### Get info about nodes in a cluster
+### Get accurate total number of hits 
 ```
-GET _nodes/stats
+GET news_articles/_search
+{
+  "track_total_hits": true
+}
 ```
 Expected response from Elasticsearch:
 
-![image](https://user-images.githubusercontent.com/60980933/101932662-5742de80-3b98-11eb-941c-7b654b16858c.png)
-
-## Performing CRUD operations
-
-## C - Create
-### Create an index
+### Get categories of news article
 Syntax:
 ```
 PUT Name-of-the-Index
@@ -55,7 +63,7 @@ Expected response from Elasticsearch:
 
 ![image](https://user-images.githubusercontent.com/60980933/101956137-5459e500-3bbc-11eb-823d-9a6871924afd.png)
 
-#### Index a document
+#### Get time range
 When indexing a document, both HTTP verbs `POST` or `PUT` can be used. 
 
 1) Use POST when you want Elasticsearch to autogenerate an id for your document. 
@@ -96,7 +104,7 @@ PUT favorite_candy/_doc/1
   "candy": "Starburst"
 }
 ```
-### _create Endpoint
+### Look up things in a category in certain date
 When you index a document using an id that already exists, the existing document is overwritten by the new document. 
 If you do not want a existing document to be overwritten, you can use the _create endpoint! 
 
@@ -177,22 +185,7 @@ Expected response from Elasticsearch:
 ![image](https://user-images.githubusercontent.com/60980933/101939174-dab4fd80-3ba1-11eb-93fe-de682853bae4.png)
 
 ## Take Home Assignment
-1. Create an index called places.
-2. Pick five of the places you want to visit after the pandemic is over. For each place, index a document containing the name and the country. 
-3. Read(GET) each document to check the content of the document.
-4. Update a field of a document.
-5. Read(GET) the updated document to ensure that the field has been updated.
-5. Delete a document of one place.
-6. Copy and paste the following request to return all documents from the places index. 
-This is a great way to check whether all the CRUD operations you have performed thus far have worked!
-```
-GET places/_search
-{
-  "query": {
-    "match_all": {}
-  }
-}
-```
+
 
 
 
