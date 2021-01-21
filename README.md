@@ -56,7 +56,20 @@ PUT Name-of-the-Index
 ```
 Example:
 ```
-PUT favorite_candy
+GET news_articles/_search
+{
+  "aggs": {
+  "by_category": {
+    "terms": {
+      "field": "category",
+      "size": 10
+    }
+  }
+}, 
+  "query": {
+    "match_all": {}
+  }
+}
 ```
 
 Expected response from Elasticsearch:
@@ -77,10 +90,16 @@ POST Name-of-the-Index/_doc
 ````
 Example:
 ```
-POST favorite_candy/_doc
+GET news_articles/_search
 {
-  "first_name": "Lisa",
-  "candy": "Sour Skittles"
+  "query": {
+    "range": {
+      "date": {
+        "gte": "2013-04-12",
+        "lte": "2013-07-12"
+      }
+    }
+  }
 }
 ```
 Expected response from Elasticsearch:
@@ -97,11 +116,21 @@ PUT Name-of-the-Index/_doc/id-you-want-to-assign-to-this-document
 }
 ```
 Example:
+AGGREGATIOn to figure out which topic has been metnioned most frequently
 ```
-PUT favorite_candy/_doc/1
+GET news_articles/_search
 {
-  "first_name": "John",
-  "candy": "Starburst"
+  "query": {
+    "match": { "category": "ENTERTAINMENT" }
+  },
+  "aggregations": {
+    "my_sample": {
+
+          "significant_text": { "field": "headline" 
+        
+      }
+    }
+  }
 }
 ```
 ### Look up things in a category in certain date
