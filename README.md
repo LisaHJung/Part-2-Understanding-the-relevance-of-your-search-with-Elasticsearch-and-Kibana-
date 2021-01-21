@@ -13,7 +13,7 @@ This repo contains all resources shared during the workshop 1.2: Understanding t
 
 [Presentation]()
 
-[Data set](https://www.kaggle.com/rmisra/news-category-dataset) from Kaggle used for demo
+[Dataset](https://www.kaggle.com/rmisra/news-category-dataset) from Kaggle used for demo
 
 [Elastic Austin User Group](https://www.meetup.com/elastic-austin-user-group/members/) Want to attend live workshops? Join the Elastic Austin User Group to keep up to date on all future events!
 
