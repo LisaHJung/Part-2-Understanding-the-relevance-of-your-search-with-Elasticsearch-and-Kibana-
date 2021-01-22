@@ -30,8 +30,8 @@ Expected response from Elasticsearch:
 
 ![image](https://user-images.githubusercontent.com/60980933/105432767-8c216700-5c15-11eb-9ea2-ef74a3bc5f1b.png)
 
-### Get accurate total number of hits 
-To improve the response speed on large datasets, Elasticsearch limits the total count to 10,000 by default.  If you want an accurate total number of hits, use the following query. 
+### Get the exact total number of hits 
+To improve the response speed on large datasets, Elasticsearch limits the total count to 10,000 by default.  If you want the exact total number of hits, use the following query. 
 
 Syntax:
 ```
@@ -56,10 +56,10 @@ Syntax:
 GET news_headlines/_search
 {
   "aggs": {
-    "by_category": {
-      "terms": {
-        "field": "category",
-        "size": 100
+    "name_your_aggregation_here": {
+      "state_your_aggregation_type_here": {
+        "field": "name_the_field_you_want_to_aggregate",
+        "size": state_how_many_results_you_want_returned
       }
     }
   }
