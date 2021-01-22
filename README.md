@@ -17,64 +17,71 @@ This repo contains all resources shared during the workshop 1.2: Understanding t
 
 [Elastic Austin User Group](https://www.meetup.com/elastic-austin-user-group/members/) Want to attend live workshops? Join the Elastic Austin User Group to keep up to date on all future events!
 
-## Sending a search request to see the content of the index
+### Retrieve all documents from an index
 Syntax: 
 ```
 GET name-of-the-index/_search
-{
-  "query": {
-    "match_all": {}
-  }
-}
 ```
-### Get info about news_articles index
+Example: 
 ```
-GET news_articles/_search
-{
-  "query": {
-    "match_all": {}
-  }
-}
+GET news_headlines/_search
 ```
 Expected response from Elasticsearch:
 
-![image](https://user-images.githubusercontent.com/60980933/105195820-3b681c00-5af8-11eb-8783-6bcdb4ca9d92.png)
+![image](https://user-images.githubusercontent.com/60980933/105432767-8c216700-5c15-11eb-9ea2-ef74a3bc5f1b.png)
 
 ### Get accurate total number of hits 
+To improve the response speed on large datasets, Elasticsearch limits the total count to 10,000 by default.  If you want an accurate total number of hits, use the following query. 
+
+Syntax:
 ```
-GET news_articles/_search
+GET name-of-the-index/_search
+{
+  "track_total_hits": true
+}
+```
+Example:
+```
+GET news_headlines/_search
 {
   "track_total_hits": true
 }
 ```
 Expected response from Elasticsearch:
+![image](https://user-images.githubusercontent.com/60980933/105433287-8f692280-5c16-11eb-8ee5-0b9d61fda418.png)
 
-### Get categories of news article
+### Get categories of news headlines
 Syntax:
 ```
-PUT Name-of-the-Index
-```
-Example:
-```
-GET news_articles/_search
+GET news_headlines/_search
 {
   "aggs": {
-  "by_category": {
-    "terms": {
-      "field": "category",
-      "size": 10
+    "by_category": {
+      "terms": {
+        "field": "category",
+        "size": 100
+      }
     }
-  }
-}, 
-  "query": {
-    "match_all": {}
   }
 }
 ```
-
+Example:
+```
+GET news_headlines/_search
+{
+  "aggs": {
+    "by_category": {
+      "terms": {
+        "field": "category",
+        "size": 100
+      }
+    }
+  }
+}
+```
 Expected response from Elasticsearch:
 
-![image](https://user-images.githubusercontent.com/60980933/101956137-5459e500-3bbc-11eb-823d-9a6871924afd.png)
+![image](https://user-images.githubusercontent.com/60980933/105434428-cc361900-5c18-11eb-9db7-e7441ac5a1ac.png)
 
 #### Get time range
 When indexing a document, both HTTP verbs `POST` or `PUT` can be used. 
