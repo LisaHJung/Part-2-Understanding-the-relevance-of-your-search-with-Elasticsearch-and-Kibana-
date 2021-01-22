@@ -20,7 +20,7 @@ This repo contains all resources shared during the workshop 1.2: Understanding t
 ### Retrieve all documents from an index
 Syntax: 
 ```
-GET name-of-the-index/_search
+GET enter_name_of_the_index_here/_search
 ```
 Example: 
 ```
@@ -35,7 +35,7 @@ To improve the response speed on large datasets, Elasticsearch limits the total 
 
 Syntax:
 ```
-GET name-of-the-index/_search
+GET enter_name_of_the_index_here/_search
 {
   "track_total_hits": true
 }
@@ -48,18 +48,52 @@ GET news_headlines/_search
 }
 ```
 Expected response from Elasticsearch:
-![image](https://user-images.githubusercontent.com/60980933/105433287-8f692280-5c16-11eb-8ee5-0b9d61fda418.png)
+![image](https://user-images.githubusercontent.com/60980933/105531896-3c8b7b80-5ca7-11eb-949d-4a65ef0b3be1.png)
+
+#### Search for data within a specific time range
+Syntax:
+```
+GET enter_name_of_the_index_here/_search
+{
+  "query": {
+    "Enter the type of query here": {
+      "Enter name of the field here": {
+        "gte": "Enter lowest value of the range here",
+        "lte": "Enter highest value of the range here"
+      }
+    }
+  }
+}
+````
+Example:
+```
+GET news_headlines/_search
+{
+  "query": {
+    "range": {
+      "date": {
+        "gte": "2015-06-20",
+        "lte": "2015-09-22"
+      }
+    }
+  }
+}
+```
+Expected response from Elasticsearch:
+It will pull up articles published from June 20, 2015 through September 22, 2015. A document from the result set was shown as an example.
+
+![image](https://user-images.githubusercontent.com/60980933/105539632-41096180-5cb2-11eb-917f-85f9ba01073e.png)
 
 ### Get categories of news headlines
 Syntax:
 ```
-GET news_headlines/_search
+GET enter_name_of_the_index_here/_search
 {
   "aggs": {
-    "name_your_aggregation_here": {
-      "state_your_aggregation_type_here": {
-        "field": "name_the_field_you_want_to_aggregate",
-        "size": state_how_many_results_you_want_returned
+    "name your aggregation here": {
+      "state your aggregation type here": {
+        "field": "name the field you want to aggregate here",
+        "size": state how many results you want returned here
       }
     }
   }
@@ -83,144 +117,105 @@ Expected response from Elasticsearch:
 
 ![image](https://user-images.githubusercontent.com/60980933/105434428-cc361900-5c18-11eb-9db7-e7441ac5a1ac.png)
 
-#### Get time range
-When indexing a document, both HTTP verbs `POST` or `PUT` can be used. 
-
-1) Use POST when you want Elasticsearch to autogenerate an id for your document. 
+### Search for the most popular topic in a certain category
 
 Syntax:
 ```
-POST Name-of-the-Index/_doc
-{
-  "field": "value"
-}
-````
-Example:
-```
-GET news_articles/_search
+GET enter_name_of_the_index_here/_search
 {
   "query": {
-    "range": {
-      "date": {
-        "gte": "2013-04-12",
-        "lte": "2013-07-12"
-      }
+    "match": { "Enter the name of the field": "Enter the value you are looking for" }
+  },
+  "aggregations": {
+    "my_sample": {
+       "significant_text": { "field": "Enter the name of the field you are searching for" }
     }
   }
 }
 ```
-Expected response from Elasticsearch:
-![image](https://user-images.githubusercontent.com/60980933/101933971-2d8ab700-3b9a-11eb-99a4-7d34b9819050.png)
-
-2) Use PUT when you want to assign a specific id to your document(i.e. if your document has a natural identifier - purchase order number, patient id, & etc).
-For more detailed explanation, check out this [documentation](https://www.elastic.co/guide/en/elasticsearch/guide/current/index-doc.html) from Elastic! 
-
-Syntax:
-```
-PUT Name-of-the-Index/_doc/id-you-want-to-assign-to-this-document
-{
-  "field": "value"
-}
-```
 Example:
-AGGREGATIOn to figure out which topic has been metnioned most frequently
 ```
-GET news_articles/_search
+GET news_headlines/_search
 {
   "query": {
     "match": { "category": "ENTERTAINMENT" }
   },
   "aggregations": {
     "my_sample": {
-
-          "significant_text": { "field": "headline" 
-        
-      }
+       "significant_text": { "field": "headline" }
     }
   }
 }
 ```
-### Look up things in a category in certain date
-When you index a document using an id that already exists, the existing document is overwritten by the new document. 
-If you do not want a existing document to be overwritten, you can use the _create endpoint! 
+Expected response from Elasticsearch:
+![image](https://user-images.githubusercontent.com/60980933/105541764-7c595f80-5cb5-11eb-86e7-ffa44ba18d74.png)
 
-With the _create Endpoint, no indexing will occur and you will get a 409 error message. 
-
+#### How do we increase recall?
 Syntax:
 ```
-PUT Name-of-the-Index/_create/id-you-want-to-assign-to-this-document
+GET enter_name_of_index_here/_search
 {
-  "field": "value"
-}
-```
-Example:
-```
-PUT favorite_candy/_create/1
-{
-  "first_name": "Finn",
-  "candy": "Jolly Ranchers"
-}
-```
-
-Expected response from Elasticsearch:
-
-![image](https://user-images.githubusercontent.com/60980933/101937947-cf60d280-3b9f-11eb-8341-316ec4a69b35.png)
-
-## R - READ
-### Read a document 
-Syntax:
-```
-GET Name-of-the-Index/_doc/id-of-the-document-you-want-to-retrieve
-```
-Example:
-```
-GET favorite_candy/_doc/1
-```
-Expected response from Elasticsearch:
-
-![image](https://user-images.githubusercontent.com/60980933/101935925-0d102c00-3b9d-11eb-9620-1b642364ef6a.png)
-
-## U - UPDATE
-### Update a document
-
-If you want to update fields in a document, use the following syntax:
-```
-POST Name-of-the-Index/_update/id-of-the-document-you-want-to-update
-{
-  "doc": {
-    "field1": "value",
-    "field2": "value",
+  "query": {
+    "match": {
+      "Specify the field you want to search":{
+        "query":"Enter search terms"
+   }
   }
-} 
+ }
+}
 ```
 Example:
 ```
-POST favorite_candy/_update/1
+GET news_headlines/_search
 {
-  "doc": {
-    "candy": "M&M's"
+  "query": {
+    "match": {
+      "headline":{
+        "query":"Khloe Kardashian Kendall Jenner"
+   }
   }
+ }
+}
+```
+Expected response from Elasticsearch: 
+![image](https://user-images.githubusercontent.com/60980933/105552502-3b674800-5cc1-11eb-8d5d-88f32d9beefa.png)
+
+#### How do we increase Precision?
+Syntax:
+```
+GET enter_name_of_index_here/_search
+{
+  "query": {
+    "match": {
+      "Specify the field you want to search":{
+        "query":"Enter search terms",
+        "operator": "and"
+   }
+  }
+ }
+}
+```
+
+Example: 
+```
+GET news_headlines/_search
+{
+  "query": {
+    "match": {
+      "headline":{
+        "query":"Khloe Kardashian Kendall Jenner",
+        "operator": "and"
+   }
+  }
+ }
 }
 ```
 Expected response from Elasticsearch:
+![image](https://user-images.githubusercontent.com/60980933/105552915-e24be400-5cc1-11eb-8881-4f6534cc6aa8.png)
 
-![image](https://user-images.githubusercontent.com/60980933/101938690-05528680-3ba1-11eb-8eec-8e2dce678405.png)
-
-## D- DELETE
-### Delete a document
-
-Syntax:
-```
-DELETE Name-of-the-Index/_doc/id-of-the-document-you-want-to-delete
-```
-Example:
-```
-DELETE favorite_candy/_doc/1
-```
-Expected response from Elasticsearch:
-![image](https://user-images.githubusercontent.com/60980933/101939174-dab4fd80-3ba1-11eb-93fe-de682853bae4.png)
 
 ## Take Home Assignment
+1. Pick a time range you want to pull 
 
 
 
