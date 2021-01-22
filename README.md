@@ -178,7 +178,7 @@ GET news_headlines/_search
 }
 ```
 Expected response from Elasticsearch: 
-![image](https://user-images.githubusercontent.com/60980933/105552502-3b674800-5cc1-11eb-8d5d-88f32d9beefa.png)
+![image](https://user-images.githubusercontent.com/60980933/105553748-3d320b00-5cc3-11eb-9aeb-a9970c60f4fc.png)
 
 #### How do we increase Precision?
 Syntax:
@@ -213,6 +213,35 @@ GET news_headlines/_search
 Expected response from Elasticsearch:
 ![image](https://user-images.githubusercontent.com/60980933/105552915-e24be400-5cc1-11eb-8881-4f6534cc6aa8.png)
 
+### Achieve a balance between precision and Recall
+Syntax:
+```
+GET enter_name_of_index_here/_search
+{
+  "query": {
+    "match": {
+      "headline":{
+        "query":"Enter search term here",
+        "minimum_should_match": Enter a number here
+   }
+  }
+ }
+}
+```
+Example: 
+```
+GET news_headlines/_search
+{
+  "query": {
+    "match": {
+      "headline":{
+        "query":"Khloe Kardashian Kendall Jenner",
+        "minimum_should_match": 2
+   }
+  }
+ }
+}
+```
 
 ## Take Home Assignment
 1. Pick a time range you want to pull 
