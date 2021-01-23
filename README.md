@@ -17,7 +17,16 @@ This repo contains all resources shared during the workshop 1.2: Understanding t
 
 [Elastic Austin User Group](https://www.meetup.com/elastic-austin-user-group/members/) Want to attend live workshops? Join the Elastic Austin User Group to keep up to date on all future events!
 
-### Retrieve all documents from an index
+## Search for information
+There are two main ways to search in Elasticsearch:
+1) Queries
+2) Aggregations
+
+### Queries
+Queries retrieves documents that meet criteria specified in a query. 
+
+#### Retrieve all documents from an index
+
 Syntax: 
 ```
 GET enter_name_of_the_index_here/_search
@@ -28,9 +37,11 @@ GET news_headlines/_search
 ```
 Expected response from Elasticsearch:
 
+Elasticsearch will display a number of hits and the content of 10 documents. 
+
 ![image](https://user-images.githubusercontent.com/60980933/105432767-8c216700-5c15-11eb-9ea2-ef74a3bc5f1b.png)
 
-### Get the exact total number of hits 
+#### Get the exact total number of hits 
 To improve the response speed on large datasets, Elasticsearch limits the total count to 10,000 by default.  If you want the exact total number of hits, use the following query. 
 
 Syntax:
@@ -48,7 +59,10 @@ GET news_headlines/_search
 }
 ```
 Expected response from Elasticsearch:
+
 ![image](https://user-images.githubusercontent.com/60980933/105531896-3c8b7b80-5ca7-11eb-949d-4a65ef0b3be1.png)
+
+You will now see that the total number of hits is 200,853.
 
 #### Search for data within a specific time range
 Syntax:
@@ -56,7 +70,7 @@ Syntax:
 GET enter_name_of_the_index_here/_search
 {
   "query": {
-    "Enter the type of query here": {
+    "Specify the type of query here": {
       "Enter name of the field here": {
         "gte": "Enter lowest value of the range here",
         "lte": "Enter highest value of the range here"
@@ -84,14 +98,18 @@ It will pull up articles published from June 20, 2015 through September 22, 2015
 
 ![image](https://user-images.githubusercontent.com/60980933/105539632-41096180-5cb2-11eb-917f-85f9ba01073e.png)
 
-### Get categories of news headlines
+### Aggregations
+
+An aggregation summarizes your data as metrics, statistics, and other analytics. 
+
+#### Analyze the data to show categories of news headlines in our dataset
 Syntax:
 ```
 GET enter_name_of_the_index_here/_search
 {
   "aggs": {
     "name your aggregation here": {
-      "state your aggregation type here": {
+      "specify aggregation type here": {
         "field": "name the field you want to aggregate here",
         "size": state how many results you want returned here
       }
@@ -117,7 +135,9 @@ Expected response from Elasticsearch:
 
 ![image](https://user-images.githubusercontent.com/60980933/105434428-cc361900-5c18-11eb-9db7-e7441ac5a1ac.png)
 
-### Search for the most popular topic in a certain category
+### A mix of Query and Aggregation request
+
+#### Search for the most popular topic in a certain category
 
 Syntax:
 ```
@@ -150,7 +170,9 @@ GET news_headlines/_search
 Expected response from Elasticsearch:
 ![image](https://user-images.githubusercontent.com/60980933/105541764-7c595f80-5cb5-11eb-86e7-ffa44ba18d74.png)
 
-#### How do we increase recall?
+### Precision and Recall
+
+#### Increasing Recall
 Syntax:
 ```
 GET enter_name_of_index_here/_search
@@ -180,7 +202,7 @@ GET news_headlines/_search
 Expected response from Elasticsearch: 
 ![image](https://user-images.githubusercontent.com/60980933/105553748-3d320b00-5cc3-11eb-9aeb-a9970c60f4fc.png)
 
-#### How do we increase Precision?
+#### Increasing Precision
 Syntax:
 ```
 GET enter_name_of_index_here/_search
@@ -213,7 +235,11 @@ GET news_headlines/_search
 Expected response from Elasticsearch:
 ![image](https://user-images.githubusercontent.com/60980933/105552915-e24be400-5cc1-11eb-8881-4f6534cc6aa8.png)
 
-### Achieve a balance between precision and Recall
+### minimum_should_match
+This parameter allows you to specify the minimum number of terms a document should have to be included in the search results. 
+
+This parameter gives you more control over fine tuning precision and recall of your search. 
+
 Syntax:
 ```
 GET enter_name_of_index_here/_search
@@ -236,15 +262,13 @@ GET news_headlines/_search
     "match": {
       "headline":{
         "query":"Khloe Kardashian Kendall Jenner",
-        "minimum_should_match": 2
+        "minimum_should_match": 3
    }
   }
  }
 }
 ```
 
-## Take Home Assignment
-1. Pick a time range you want to pull 
 
 
 
