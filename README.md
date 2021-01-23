@@ -235,7 +235,7 @@ GET news_headlines/_search
 Expected response from Elasticsearch:
 ![image](https://user-images.githubusercontent.com/60980933/105552915-e24be400-5cc1-11eb-8881-4f6534cc6aa8.png)
 
-### minimum_should_match
+#### minimum_should_match
 This parameter allows you to specify the minimum number of terms a document should have to be included in the search results. 
 
 This parameter gives you more control over fine tuning precision and recall of your search. 
