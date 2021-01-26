@@ -111,7 +111,7 @@ GET enter_name_of_the_index_here/_search
     "name your aggregation here": {
       "specify aggregation type here": {
         "field": "name the field you want to aggregate here",
-        "size": state how many results you want returned here
+        "size": state how many buckets you want returned here
       }
     }
   }
@@ -147,7 +147,7 @@ GET enter_name_of_the_index_here/_search
     "match": { "Enter the name of the field": "Enter the value you are looking for" }
   },
   "aggregations": {
-    "my_sample": {
+    "Name your aggregation here": {
        "significant_text": { "field": "Enter the name of the field you are searching for" }
     }
   }
@@ -161,7 +161,7 @@ GET news_headlines/_search
     "match": { "category": "ENTERTAINMENT" }
   },
   "aggregations": {
-    "my_sample": {
+    "popular_in_entertainment": {
        "significant_text": { "field": "headline" }
     }
   }
@@ -173,6 +173,7 @@ Expected response from Elasticsearch:
 ### Precision and Recall
 
 #### Increasing Recall
+
 Syntax:
 ```
 GET enter_name_of_index_here/_search
@@ -200,9 +201,14 @@ GET news_headlines/_search
 }
 ```
 Expected response from Elasticsearch: 
+
+By default, the match query uses an "OR" logic. If a document contains one of the search terms specified in the specified filed, it will consider that document as a hit. 
+
 ![image](https://user-images.githubusercontent.com/60980933/105553748-3d320b00-5cc3-11eb-9aeb-a9970c60f4fc.png)
 
 #### Increasing Precision
+We can increase precision by adding an "and" operator to the query. 
+
 Syntax:
 ```
 GET enter_name_of_index_here/_search
