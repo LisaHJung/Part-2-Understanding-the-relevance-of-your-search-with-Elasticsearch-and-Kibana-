@@ -41,28 +41,7 @@ Elasticsearch will display a number of hits and the content of 10 documents.
 
 ![image](https://user-images.githubusercontent.com/60980933/105432767-8c216700-5c15-11eb-9ea2-ef74a3bc5f1b.png)
 
-#### Get the exact total number of hits 
-To improve the response speed on large datasets, Elasticsearch limits the total count to 10,000 by default.  If you want the exact total number of hits, use the following query. 
 
-Syntax:
-```
-GET enter_name_of_the_index_here/_search
-{
-  "track_total_hits": true
-}
-```
-Example:
-```
-GET news_headlines/_search
-{
-  "track_total_hits": true
-}
-```
-Expected response from Elasticsearch:
-
-![image](https://user-images.githubusercontent.com/60980933/105531896-3c8b7b80-5ca7-11eb-949d-4a65ef0b3be1.png)
-
-You will now see that the total number of hits is 200,853.
 
 #### Search for data within a specific time range
 Syntax:
