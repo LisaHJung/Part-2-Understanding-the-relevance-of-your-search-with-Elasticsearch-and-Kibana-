@@ -13,7 +13,7 @@ This repo contains all resources shared during the workshop 1.2: Understanding t
 
 [Presentation](https://github.com/LisaHJung/Part-1.2-Understanding-the-relevance-of-your-search-with-Elasticsearch-and-Kibana-/blob/main/Part%201.2%20Understanding%20the%20relevance%20of%20your%20search%20with%20Elasticsearch%20and%20Kibana%20-%20Beginner's%20Crash%20Course%20to%20the%20Elastic%20Stack%20Series%20-%20.pdf)
 
-[Dataset](https://www.kaggle.com/rmisra/news-category-dataset) from Kaggle used for demo
+[Dataset](https://www.kaggle.com/rmisra/news-category-dataset) from Kaggle used for tutorial
 
 [Elastic Austin User Group](https://www.meetup.com/elastic-austin-user-group/members/) Want to attend live workshops? Join the Elastic Austin User Group to keep up to date on all future events!
 
@@ -23,7 +23,7 @@ There are two main ways to search in Elasticsearch:
 2) Aggregations
 
 ### Queries
-Queries retrieves documents that meet criteria specified in a query. 
+Queries retrieve documents that match the criteria. 
 
 #### Retrieve all documents from an index
 
@@ -37,7 +37,7 @@ GET news_headlines/_search
 ```
 Expected response from Elasticsearch:
 
-Elasticsearch will display a number of hits and the content of 10 documents. 
+Elasticsearch displays a number of hits and a sample of 10 search results by default.  
 
 ![image](https://user-images.githubusercontent.com/60980933/105432767-8c216700-5c15-11eb-9ea2-ef74a3bc5f1b.png)
 
@@ -60,7 +60,8 @@ GET news_headlines/_search
 ```
 Expected response from Elasticsearch:
 
-You will now see that the total number of hits is 200,853.
+You will see that the total number of hits is now 200,853.
+
 ![image](https://user-images.githubusercontent.com/60980933/105531896-3c8b7b80-5ca7-11eb-949d-4a65ef0b3be1.png)
 
 
@@ -104,7 +105,7 @@ It will pull up articles published from June 20, 2015 through September 22, 2015
 
 An aggregation summarizes your data as metrics, statistics, and other analytics. 
 
-#### Analyze the data to show categories of news headlines in our dataset
+#### Analyze the data to show the categories of news headlines in our dataset
 Syntax:
 ```
 GET enter_name_of_the_index_here/_search
@@ -137,9 +138,9 @@ Expected response from Elasticsearch:
 
 ![image](https://user-images.githubusercontent.com/60980933/105434428-cc361900-5c18-11eb-9db7-e7441ac5a1ac.png)
 
-### A combnation of query and aggregation request
+### A combination of query and aggregation request
 
-#### Search for the most popular topic in a certain category
+#### Search for the most significant term in a category
 
 Syntax:
 ```
@@ -207,6 +208,8 @@ Expected response from Elasticsearch:
 
 By default, the match query uses an "OR" logic. If a document contains one of the search terms specified in the specified filed, it will consider that document as a hit. 
 
+"OR" logic increases recall. It results in higher number of hits but the hits are loosely related to the query. 
+
 ![image](https://user-images.githubusercontent.com/60980933/105553748-3d320b00-5cc3-11eb-9aeb-a9970c60f4fc.png)
 
 #### Increasing Precision
@@ -243,6 +246,8 @@ GET news_headlines/_search
 ```
 Expected response from Elasticsearch:
 
+"and" operator will result in getting more precise matches. However, it will reduce the number of hits returned.
+
 ![image](https://user-images.githubusercontent.com/60980933/105552915-e24be400-5cc1-11eb-8881-4f6534cc6aa8.png)
 
 #### minimum_should_match
@@ -278,3 +283,9 @@ GET news_headlines/_search
  }
 }
 ```
+Expected response from Elasticsearch:
+
+With minimum_should_match parameter, we were able to fine tune both precision and recall! 
+
+![image](https://user-images.githubusercontent.com/60980933/105939135-cde74e80-6015-11eb-9f3e-6a38cc373de2.png)
+
