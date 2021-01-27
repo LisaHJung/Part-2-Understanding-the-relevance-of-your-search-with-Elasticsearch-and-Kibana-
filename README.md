@@ -60,9 +60,10 @@ GET news_headlines/_search
 ```
 Expected response from Elasticsearch:
 
+You will now see that the total number of hits is 200,853.
 ![image](https://user-images.githubusercontent.com/60980933/105531896-3c8b7b80-5ca7-11eb-949d-4a65ef0b3be1.png)
 
-You will now see that the total number of hits is 200,853.
+
 
 #### Search for data within a specific time range
 Syntax:
@@ -94,6 +95,7 @@ GET news_headlines/_search
 }
 ```
 Expected response from Elasticsearch:
+
 It will pull up articles published from June 20, 2015 through September 22, 2015. A document from the result set was shown as an example.
 
 ![image](https://user-images.githubusercontent.com/60980933/105539632-41096180-5cb2-11eb-917f-85f9ba01073e.png)
@@ -135,7 +137,7 @@ Expected response from Elasticsearch:
 
 ![image](https://user-images.githubusercontent.com/60980933/105434428-cc361900-5c18-11eb-9db7-e7441ac5a1ac.png)
 
-### A mix of Query and Aggregation request
+### A combnation of query and aggregation request
 
 #### Search for the most popular topic in a certain category
 
@@ -168,6 +170,7 @@ GET news_headlines/_search
 }
 ```
 Expected response from Elasticsearch:
+
 ![image](https://user-images.githubusercontent.com/60980933/105541764-7c595f80-5cb5-11eb-86e7-ffa44ba18d74.png)
 
 ### Precision and Recall
@@ -239,6 +242,7 @@ GET news_headlines/_search
 }
 ```
 Expected response from Elasticsearch:
+
 ![image](https://user-images.githubusercontent.com/60980933/105552915-e24be400-5cc1-11eb-8881-4f6534cc6aa8.png)
 
 #### minimum_should_match
