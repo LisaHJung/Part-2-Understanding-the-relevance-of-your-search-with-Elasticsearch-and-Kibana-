@@ -206,9 +206,9 @@ GET news_headlines/_search
 ```
 Expected response from Elasticsearch: 
 
-By default, the match query uses an "OR" logic. If a document contains one of the search terms specified in the specified filed, it will consider that document as a hit. 
+By default, the match query uses an "OR" logic. If a document contains one of the search terms, Elasticsearch will consider that document as a hit. 
 
-"OR" logic increases recall. It results in higher number of hits but the hits are loosely related to the query. 
+"OR" logic results in higher number of hits, thereby increasing recall. However, the hits are loosely related to the query and lowering precision as a result.   
 
 ![image](https://user-images.githubusercontent.com/60980933/105553748-3d320b00-5cc3-11eb-9aeb-a9970c60f4fc.png)
 
@@ -246,7 +246,7 @@ GET news_headlines/_search
 ```
 Expected response from Elasticsearch:
 
-"and" operator will result in getting more precise matches. However, it will reduce the number of hits returned.
+"AND" operator will result in getting more precise matches, thereby increasing precision. However, it will reduce the number of hits returned, resulting in lower recall. 
 
 ![image](https://user-images.githubusercontent.com/60980933/105552915-e24be400-5cc1-11eb-8881-4f6534cc6aa8.png)
 
