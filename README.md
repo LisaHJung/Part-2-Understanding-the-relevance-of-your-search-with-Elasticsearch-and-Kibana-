@@ -11,7 +11,7 @@ This repo contains all resources shared during the workshop 1.2: Understanding t
 
 [Instructions](https://dev.to/elastic/downloading-elasticsearch-and-kibana-macos-linux-and-windows-1mmo) for downloading Elasticsearch and Kibana
 
-[Presentation]()
+[Presentation](https://github.com/LisaHJung/Part-1.2-Understanding-the-relevance-of-your-search-with-Elasticsearch-and-Kibana-/blob/main/Part%201.2%20Understanding%20the%20relevance%20of%20your%20search%20with%20Elasticsearch%20and%20Kibana%20-%20Beginner's%20Crash%20Course%20to%20the%20Elastic%20Stack%20Series%20-%20.pdf)
 
 [Dataset](https://www.kaggle.com/rmisra/news-category-dataset) from Kaggle used for demo
 
@@ -278,8 +278,3 @@ GET news_headlines/_search
  }
 }
 ```
-
-
-
-
-
