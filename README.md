@@ -11,6 +11,8 @@ This repo contains all resources shared during the workshop 1.2: Understanding t
 
 [Instructions](https://dev.to/elastic/downloading-elasticsearch-and-kibana-macos-linux-and-windows-1mmo) for downloading Elasticsearch and Kibana
 
+[Video](https://www.youtube.com/watch?v=CCTgroOcyfM) of the workshop
+
 [Presentation](https://github.com/LisaHJung/Part-1.2-Understanding-the-relevance-of-your-search-with-Elasticsearch-and-Kibana-/blob/main/Part%201.2%20Understanding%20the%20relevance%20of%20your%20search%20with%20Elasticsearch%20and%20Kibana%20-%20Beginner's%20Crash%20Course%20to%20the%20Elastic%20Stack%20Series%20-%20.pdf)
 
 [Dataset](https://www.kaggle.com/rmisra/news-category-dataset) from Kaggle used for tutorial
@@ -285,7 +287,7 @@ GET news_headlines/_search
 ```
 Expected response from Elasticsearch:
 
-With minimum_should_match parameter, we were able to fine tune both precision and recall! 
+With minimum_should_match parameter, we were able to finetune both precision and recall! 
 
 ![image](https://user-images.githubusercontent.com/60980933/105939135-cde74e80-6015-11eb-9f3e-6a38cc373de2.png)
 
