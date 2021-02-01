@@ -3,7 +3,7 @@
 
 Welcome to the Beginner's Crash Course to the Elastic Stack!
 
-This repo contains all resources shared during the workshop 1.2: Understanding the relevance of your search with Elasticsearch and Kibana.
+This repo contains all resources shared during Part 2: Understanding the relevance of your search with Elasticsearch and Kibana.
 
 ## Resources
 
