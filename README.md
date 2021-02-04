@@ -1,7 +1,7 @@
-# Beginner's Crash Course to the Elastic Stack Series
+# Beginner's Crash Course to Elastic Stack Series
 ## Part 2: Understanding the relevance of your search with Elasticsearch and Kibana
 
-Welcome to the Beginner's Crash Course to the Elastic Stack!
+Welcome to the Beginner's Crash Course to Elastic Stack!
 
 This repo contains all resources shared during Part 2: Understanding the relevance of your search with Elasticsearch and Kibana.
 
