@@ -17,7 +17,7 @@ This repo contains all resources shared during Part 2: Understanding the relevan
 
 [Dataset](https://www.kaggle.com/rmisra/news-category-dataset) from Kaggle used for tutorial
 
-[Elastic Vancouver Chapter](https://community.elastic.co/vancouver/) Want to attend live workshops? Join the Elastic Vancouver Chapter to get the deets!
+[Elastic America Virtual Chapter](https://community.elastic.co/amer-virtual/) Want to attend live workshops? Join the Elastic America Virtual Chapter to get the deets!
 
 ## Search for information
 There are two main ways to search in Elasticsearch:
