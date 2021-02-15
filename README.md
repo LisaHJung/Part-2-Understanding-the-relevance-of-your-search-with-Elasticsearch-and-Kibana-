@@ -5,6 +5,12 @@ Welcome to the Beginner's Crash Course to Elastic Stack!
 
 This repo contains all resources shared during Part 2: Understanding the relevance of your search with Elasticsearch and Kibana.
 
+By the end of this workshop, you will: 
+- learn how Precision and Recall are used to measure how well Elastic search engine is searching
+- understand how scoring is used to rank the relevance of your search results in Elasticsearch
+- master how to send search queries from Kibana to Elasticsearch to finetune Precision or Recall of your search results
+
+
 ## Resources
 
 [Free Elastic Cloud Trial](https://ela.st/elastic-beginners)
