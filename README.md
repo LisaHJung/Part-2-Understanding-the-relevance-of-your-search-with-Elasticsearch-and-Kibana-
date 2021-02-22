@@ -72,8 +72,6 @@ You will see that the total number of hits is now 200,853.
 
 ![image](https://user-images.githubusercontent.com/60980933/105531896-3c8b7b80-5ca7-11eb-949d-4a65ef0b3be1.png)
 
-
-
 #### Search for data within a specific time range
 Syntax:
 ```
