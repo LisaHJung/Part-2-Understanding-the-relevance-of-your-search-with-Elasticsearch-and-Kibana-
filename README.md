@@ -27,6 +27,8 @@ By the end of this workshop, you will:
 
 [Elastic America Virtual Chapter](https://community.elastic.co/amer-virtual/) Want to attend live workshops? Join the Elastic America Virtual Chapter to get the deets!
 
+[What's next?](https://github.com/LisaHJung/Part-3-Running-full-text-queries-and-combined-queries-with-Elasticsearch-and-Kibana) Eager to continue your learning after mastering the concept from this workshop? Move on to Part 3: Running full text queries and combined queries with Elasticsearch and Kibana [here](https://github.com/LisaHJung/Part-3-Running-full-text-queries-and-combined-queries-with-Elasticsearch-and-Kibana)!
+
 ## Search for information
 There are two main ways to search in Elasticsearch:
 1) Queries
