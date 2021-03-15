@@ -13,6 +13,8 @@ By the end of this workshop, you will:
 
 ## Resources
 
+[Beginner's Crash Course to Elastic Stack Table of Contents](https://github.com/LisaHJung/Beginners-Crash-Course-to-the-Elastic-Stack-Series) This workshop is a part of the Beginner's Crash Course to Elastic Stack series. Check out this table contents to access all the workshops in the series thus far. This table will continue to get updated as more workshops in the series are released! 
+
 [Free Elastic Cloud Trial](https://ela.st/elastic-beginners)
 
 [Instructions](https://dev.to/lisahjung/beginner-s-guide-to-setting-up-elasticsearch-and-kibana-with-elastic-cloud-1joh) on how to access Elasticsearch and Kibana on Elastic Cloud
@@ -25,7 +27,7 @@ By the end of this workshop, you will:
 
 [Dataset](https://www.kaggle.com/rmisra/news-category-dataset) from Kaggle used for tutorial
 
-[Blog](https://dev.to/lisahjung/beginner-s-guide-to-understanding-the-relevance-of-your-search-with-elasticsearch-and-kibana-29n6)on understanding the relevance of your search with Elasticsearch and Kibana
+[Blog](https://dev.to/lisahjung/beginner-s-guide-to-understanding-the-relevance-of-your-search-with-elasticsearch-and-kibana-29n6) on understanding the relevance of your search with Elasticsearch and Kibana
 
 [Elastic America Virtual Chapter](https://community.elastic.co/amer-virtual/) Want to attend live workshops? Join the Elastic America Virtual Chapter to get the deets!
 
