@@ -25,6 +25,8 @@ By the end of this workshop, you will:
 
 [Dataset](https://www.kaggle.com/rmisra/news-category-dataset) from Kaggle used for tutorial
 
+[Blog](https://dev.to/lisahjung/beginner-s-guide-to-understanding-the-relevance-of-your-search-with-elasticsearch-and-kibana-29n6)on understanding the relevance of your search with Elasticsearch and Kibana
+
 [Elastic America Virtual Chapter](https://community.elastic.co/amer-virtual/) Want to attend live workshops? Join the Elastic America Virtual Chapter to get the deets!
 
 [What's next?](https://github.com/LisaHJung/Part-3-Running-full-text-queries-and-combined-queries-with-Elasticsearch-and-Kibana) Eager to continue your learning after mastering the concept from this workshop? Move on to Part 3: Running full text queries and combined queries with Elasticsearch and Kibana [here](https://github.com/LisaHJung/Part-3-Running-full-text-queries-and-combined-queries-with-Elasticsearch-and-Kibana)!
