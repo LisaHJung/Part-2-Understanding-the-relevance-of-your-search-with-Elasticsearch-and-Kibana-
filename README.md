@@ -161,11 +161,15 @@ Syntax:
 GET enter_name_of_the_index_here/_search
 {
   "query": {
-    "match": { "Enter the name of the field": "Enter the value you are looking for" }
+    "match": {
+      "Enter the name of the field": "Enter the value you are looking for"
+    }
   },
   "aggregations": {
     "Name your aggregation here": {
-       "significant_text": { "field": "Enter the name of the field you are searching for" }
+      "significant_text": {
+        "field": "Enter the name of the field you are searching for"
+      }
     }
   }
 }
@@ -175,11 +179,15 @@ Example:
 GET news_headlines/_search
 {
   "query": {
-    "match": { "category": "ENTERTAINMENT" }
+    "match": {
+      "category": "ENTERTAINMENT"
+    }
   },
   "aggregations": {
     "popular_in_entertainment": {
-       "significant_text": { "field": "headline" }
+      "significant_text": {
+        "field": "headline"
+      }
     }
   }
 }
@@ -198,11 +206,11 @@ GET enter_name_of_index_here/_search
 {
   "query": {
     "match": {
-      "Specify the field you want to search":{
-        "query":"Enter search terms"
-   }
+      "Specify the field you want to search": {
+        "query": "Enter search terms"
+      }
+    }
   }
- }
 }
 ```
 Example:
@@ -211,11 +219,11 @@ GET news_headlines/_search
 {
   "query": {
     "match": {
-      "headline":{
-        "query":"Khloe Kardashian Kendall Jenner"
-   }
+      "headline": {
+        "query": "Khloe Kardashian Kendall Jenner"
+      }
+    }
   }
- }
 }
 ```
 Expected response from Elasticsearch: 
@@ -235,12 +243,12 @@ GET enter_name_of_index_here/_search
 {
   "query": {
     "match": {
-      "Specify the field you want to search":{
-        "query":"Enter search terms",
+      "Specify the field you want to search": {
+        "query": "Enter search terms",
         "operator": "and"
-   }
+      }
+    }
   }
- }
 }
 ```
 
@@ -250,12 +258,12 @@ GET news_headlines/_search
 {
   "query": {
     "match": {
-      "headline":{
-        "query":"Khloe Kardashian Kendall Jenner",
+      "headline": {
+        "query": "Khloe Kardashian Kendall Jenner",
         "operator": "and"
-   }
+      }
+    }
   }
- }
 }
 ```
 Expected response from Elasticsearch:
@@ -275,12 +283,12 @@ GET enter_name_of_index_here/_search
 {
   "query": {
     "match": {
-      "headline":{
-        "query":"Enter search term here",
+      "headline": {
+        "query": "Enter search term here",
         "minimum_should_match": Enter a number here
-   }
+      }
+    }
   }
- }
 }
 ```
 Example: 
@@ -289,12 +297,12 @@ GET news_headlines/_search
 {
   "query": {
     "match": {
-      "headline":{
-        "query":"Khloe Kardashian Kendall Jenner",
+      "headline": {
+        "query": "Khloe Kardashian Kendall Jenner",
         "minimum_should_match": 3
-   }
+      }
+    }
   }
- }
 }
 ```
 Expected response from Elasticsearch:
