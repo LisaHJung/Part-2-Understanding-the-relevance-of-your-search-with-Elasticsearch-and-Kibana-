@@ -41,7 +41,7 @@ There are two main ways to search in Elasticsearch:
 ### Queries
 Queries retrieve documents that match the criteria. 
 
-#### Retrieve all documents from an index
+#### Retrieve information about documents in an index
 
 Syntax: 
 ```
