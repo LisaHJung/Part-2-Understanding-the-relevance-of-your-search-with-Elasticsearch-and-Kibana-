@@ -25,7 +25,7 @@ By the end of this workshop, you will:
 
 [Presentation](https://github.com/LisaHJung/Part-1.2-Understanding-the-relevance-of-your-search-with-Elasticsearch-and-Kibana-/blob/main/Part%201.2%20Understanding%20the%20relevance%20of%20your%20search%20with%20Elasticsearch%20and%20Kibana%20-%20Beginner's%20Crash%20Course%20to%20the%20Elastic%20Stack%20Series%20-%20.pdf)
 
-[Dataset](https://www.kaggle.com/rmisra/news-category-dataset) from Kaggle used for tutorial
+[News Headlines Dataset](https://www.kaggle.com/rmisra/news-category-dataset)
 
 [Blog](https://dev.to/lisahjung/beginner-s-guide-to-understanding-the-relevance-of-your-search-with-elasticsearch-and-kibana-29n6) on understanding the relevance of your search with Elasticsearch and Kibana
 
