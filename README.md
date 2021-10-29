@@ -23,6 +23,10 @@ By the end of this workshop, you will:
 
 [Video](https://www.youtube.com/watch?v=CCTgroOcyfM) of the workshop
 
+[Mini Beginner's Crash Course to Elasticsearch & Kibana playlist](https://ela.st/mini-beginners-crash-course)
+
+Do you prefer learning by watching shorter videos? Check out this playlist to watch short clips of beginner's crash course full length workshops. Season 2 clips will be uploaded here in the future! 
+
 [Presentation](https://github.com/LisaHJung/Part-1.2-Understanding-the-relevance-of-your-search-with-Elasticsearch-and-Kibana-/blob/main/Part%201.2%20Understanding%20the%20relevance%20of%20your%20search%20with%20Elasticsearch%20and%20Kibana%20-%20Beginner's%20Crash%20Course%20to%20the%20Elastic%20Stack%20Series%20-%20.pdf)
 
 [News Headlines Dataset](https://www.kaggle.com/rmisra/news-category-dataset)
